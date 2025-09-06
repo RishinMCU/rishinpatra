@@ -6,18 +6,21 @@ import { CatFace } from '@/components/CatFace';
 
 // Import generated images
 import profilePhoto from '@/assets/profile-photo.jpg';
-import photo1 from '@/assets/photo-1.jpg';
-import photo2 from '@/assets/photo-2.jpg';
-import rcPlane1 from '@/assets/rc-plane-1.jpg';
-import pcbBoard1 from '@/assets/pcb-board-1.jpg';
-import electronics2 from '@/assets/electronics-2.jpg';
+import photo1 from '@/assets/photography/photo-1.jpg';
+import photo2 from '@/assets/photography/photo-2.jpg';
+import rcPlane1 from '@/assets/hobbies/rc-plane-1.jpg';
+import hobby2 from '@/assets/hobbies/hobby-2.jpg';
+import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
+import electronics2 from '@/assets/electronics/electronics-2.jpg';
 
 const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
+  const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
 
   const photographyImages = [photo1, photo2];
   const electronicsImages = [pcbBoard1, electronics2];
+  const hobbyImages = [rcPlane1, hobby2];
 
   const nextPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev + 1) % photographyImages.length);
@@ -35,17 +38,25 @@ const Index = () => {
     setCurrentElectronicsIndex((prev) => (prev - 1 + electronicsImages.length) % electronicsImages.length);
   };
 
+  const nextHobby = () => {
+    setCurrentHobbyIndex((prev) => (prev + 1) % hobbyImages.length);
+  };
+
+  const prevHobby = () => {
+    setCurrentHobbyIndex((prev) => (prev - 1 + hobbyImages.length) % hobbyImages.length);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-hero">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-center space-x-8">
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-swift">About</a>
-            <a href="#photography" className="text-muted-foreground hover:text-foreground transition-swift">Photography</a>
-            <a href="#hobbies" className="text-muted-foreground hover:text-foreground transition-swift">Hobbies</a>
-            <a href="#electronics" className="text-muted-foreground hover:text-foreground transition-swift">Electronics</a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-swift">Contact</a>
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex justify-center space-x-4 md:space-x-8 text-sm md:text-base">
+            <a href="#about" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">About</a>
+            <a href="#photography" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Photography</a>
+            <a href="#hobbies" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Hobbies</a>
+            <a href="#electronics" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Electronics</a>
+            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Contact</a>
           </div>
         </div>
       </nav>
@@ -149,36 +160,61 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Hobbies Section - RC Aviation */}
+      {/* Hobbies Section */}
       <section id="hobbies" className="section-spacing">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-4xl font-light text-primary mb-golden-lg">RC Aviation</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                There's nothing quite like the thrill of piloting remote control aircraft. 
-                From precision aerobatics to smooth gliding, RC aviation combines technical skill 
-                with the pure joy of flight.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Each flight is an opportunity to push boundaries, whether mastering new maneuvers 
-                or testing custom modifications. The sky is truly the limit.
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-light text-primary mb-4">Hobbies</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Exploring passions that fuel creativity and technical innovation
+            </p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            <Card className="overflow-hidden shadow-elegant hover-glow">
+              <div className="relative aspect-golden">
+                <img 
+                  src={hobbyImages[currentHobbyIndex]} 
+                  alt={`Hobby ${currentHobbyIndex + 1}`}
+                  className="w-full h-full object-cover transition-elegant"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+              
+              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <Button 
+                  variant="secondary" 
+                  size="icon" 
+                  onClick={prevHobby}
+                  className="bg-background/80 backdrop-blur-sm hover-lift"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+              </div>
+              
+              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                <Button 
+                  variant="secondary" 
+                  size="icon" 
+                  onClick={nextHobby}
+                  className="bg-background/80 backdrop-blur-sm hover-lift"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </Card>
+
+            <div className="text-center mt-8">
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
+                From precision aerobatics to technical innovations, each pursuit combines skill 
+                with the pure joy of pushing creative boundaries and exploring new possibilities.
               </p>
               <Button asChild className="hover-lift">
                 <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                  Watch Flight Videos
+                  Watch Videos
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-            </div>
-            <div className="flex justify-center">
-              <Card className="overflow-hidden shadow-elegant hover-glow">
-                <img 
-                  src={rcPlane1} 
-                  alt="RC Plane"
-                  className="w-full aspect-golden object-cover"
-                />
-              </Card>
             </div>
           </div>
         </div>

@@ -74,20 +74,20 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
   const getMouthPath = () => {
     switch (expression) {
       case 'smile':
-        return 'M -8 8 Q 0 16 8 8';
+        return 'M 22 38 Q 30 46 38 38';
       case 'wink':
-        return 'M -6 10 Q 0 14 6 10';
+        return 'M 24 40 Q 30 44 36 40';
       case 'tongue':
-        return 'M -6 8 Q 0 12 6 8 M -2 12 L 2 12 L 2 16 L -2 16 Z';
+        return 'M 24 38 Q 30 42 36 38 M 28 42 L 32 42 L 32 46 L 28 46 Z';
       default:
-        return 'M -6 10 Q 0 12 6 10';
+        return 'M 24 40 Q 30 42 36 40';
     }
   };
 
   return (
     <div 
       ref={catRef}
-      className={`inline-block transition-all duration-300 hover-lift ${className}`}
+      className={`inline-block transition-all duration-300 pointer-events-none ${className}`}
     >
       <svg 
         width="60" 
@@ -154,7 +154,7 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
         
         {/* Nose */}
         <path 
-          d="M28 28 L32 28 L30 32 Z" 
+          d="M28 32 L32 32 L30 36 Z" 
           fill="hsl(var(--primary))"
         />
         
