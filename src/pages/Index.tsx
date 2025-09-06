@@ -81,10 +81,7 @@ const Index = () => {
           <div className="md:hidden flex justify-between items-center">
             <button
               type="button"
-              onClick={() => {
-                console.log('Menu button clicked!', isMobileMenuOpen);
-                setIsMobileMenuOpen(!isMobileMenuOpen);
-              }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-muted-foreground hover:text-foreground z-[60] relative bg-background border border-border rounded-md"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -95,7 +92,6 @@ const Index = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-2 text-muted-foreground hover:text-foreground transition-swift text-sm font-medium z-[60] relative bg-background border border-border rounded-md"
-              onClick={() => console.log('Resume clicked!')}
             >
               {linkText.resume}
             </a>
@@ -114,12 +110,9 @@ const Index = () => {
                 <a 
                   href="#about" 
                   className="text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer hover:scale-110 transform"
-                  onClick={(e) => {
-                    console.log('About clicked');
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
                 >
                   About
@@ -127,12 +120,9 @@ const Index = () => {
                 <a 
                   href="#photography" 
                   className="text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer hover:scale-110 transform"
-                  onClick={(e) => {
-                    console.log('Photography clicked');
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('photography')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    setTimeout(() => document.getElementById('photography')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
                 >
                   Photography
@@ -140,12 +130,9 @@ const Index = () => {
                 <a 
                   href="#hobbies" 
                   className="text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer hover:scale-110 transform"
-                  onClick={(e) => {
-                    console.log('Hobbies clicked');
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('hobbies')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    setTimeout(() => document.getElementById('hobbies')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
                 >
                   Hobbies
@@ -153,12 +140,9 @@ const Index = () => {
                 <a 
                   href="#electronics" 
                   className="text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer hover:scale-110 transform"
-                  onClick={(e) => {
-                    console.log('Electronics clicked');
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('electronics')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    setTimeout(() => document.getElementById('electronics')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
                 >
                   Electronics
@@ -166,12 +150,9 @@ const Index = () => {
                 <a 
                   href="#contact" 
                   className="text-muted-foreground hover:text-foreground transition-all duration-300 cursor-pointer hover:scale-110 transform"
-                  onClick={(e) => {
-                    console.log('Contact clicked');
+                  onClick={() => {
                     setIsMobileMenuOpen(false);
-                    setTimeout(() => {
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
                 >
                   Contact
@@ -411,7 +392,7 @@ const Index = () => {
                   description: `${externalLinks.email} has been copied to clipboard`
                 });
               } catch (err) {
-                console.log('Fallback: Could not copy text');
+                // Fallback: Could not copy text
               }
             } else {
               window.open(`mailto:${externalLinks.email}?subject=Hello&body=Hi there!`);
@@ -430,7 +411,7 @@ const Index = () => {
                 description: "+1 906 281 7933 has been copied to clipboard"
               });
             } catch (err) {
-              console.log('Fallback: Could not copy text');
+              // Fallback: Could not copy text
             }
           }}>
               <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
@@ -459,7 +440,8 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 text-center text-muted-foreground border-t border-border">
-        <p>&copy; 2024 Creative Portfolio. Crafted with passion and precision.</p>
+        <p>&copy; 2024 Rishin Patra • Houghton, Michigan</p>
+        <p className="text-sm mt-2 italic">"Engineering and photography are two sides of the same coin - one builds the tools, the other uses them to reimagine the world."</p>
       </footer>
     </div>;
 };
