@@ -100,7 +100,7 @@ const Index = () => {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-md transition-all duration-300 ${
+        <div className={`md:hidden fixed inset-0 bg-background/98 backdrop-blur-xl transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`} style={{ top: '73px' }}>
           <div className={`flex flex-col items-center justify-center h-full space-y-8 text-2xl transition-all duration-500 ${
