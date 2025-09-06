@@ -70,6 +70,7 @@ const Index = () => {
             <a href="#photography" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Photography</a>
             <a href="#hobbies" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Hobbies</a>
             <a href="#electronics" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Electronics</a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Resume</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Contact</a>
           </div>
         </div>
