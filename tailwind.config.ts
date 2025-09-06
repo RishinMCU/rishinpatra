@@ -58,6 +58,22 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      spacing: {
+        'golden-sm': 'var(--golden-small)',
+        'golden': 'var(--golden-base)',
+        'golden-lg': 'var(--golden-large)',
+        'golden-xl': 'var(--golden-xl)',
+        'golden-2xl': 'var(--golden-2xl)',
+      },
+      aspectRatio: {
+        'golden': '1.618',
+        'golden-portrait': '0.618',
+      },
+      backgroundImage: {
+        'gradient-warm': 'var(--gradient-warm)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

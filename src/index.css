@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Elegant Portfolio Design System - Golden Ratio & Timeless Colors */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, timeless color palette */
+    --background: 45 15% 97%;
+    --foreground: 30 8% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 20% 95%;
+    --card-foreground: 30 8% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 15% 97%;
+    --popover-foreground: 30 8% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Elegant warm primary */
+    --primary: 35 25% 25%;
+    --primary-foreground: 45 15% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft secondary tones */
+    --secondary: 40 12% 85%;
+    --secondary-foreground: 30 8% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted earth tones */
+    --muted: 38 10% 88%;
+    --muted-foreground: 30 6% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm accent gold */
+    --accent: 42 35% 75%;
+    --accent-foreground: 30 8% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 45 15% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 8% 90%;
+    --input: 40 8% 90%;
+    --ring: 35 25% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Golden ratio proportions */
+    --golden-ratio: 1.618;
+    --golden-small: calc(1rem / var(--golden-ratio));
+    --golden-base: 1rem;
+    --golden-large: calc(1rem * var(--golden-ratio));
+    --golden-xl: calc(1rem * var(--golden-ratio) * var(--golden-ratio));
+    --golden-2xl: calc(1rem * var(--golden-ratio) * var(--golden-ratio) * var(--golden-ratio));
+
+    /* Elegant gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.05));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted) / 0.3));
+
+    /* Subtle shadows using golden ratio */
+    --shadow-sm: 0 calc(var(--golden-small) / 4) var(--golden-small) hsl(var(--foreground) / 0.05);
+    --shadow-md: 0 var(--golden-small) var(--golden-base) hsl(var(--foreground) / 0.08);
+    --shadow-lg: 0 var(--golden-base) var(--golden-large) hsl(var(--foreground) / 0.12);
+    --shadow-elegant: 0 var(--golden-large) var(--golden-xl) hsl(var(--primary) / 0.15);
+
+    /* Smooth transitions */
+    --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-swift: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,58 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground scroll-smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Golden ratio spacing utilities */
+  .space-golden-sm { gap: var(--golden-small); }
+  .space-golden { gap: var(--golden-base); }
+  .space-golden-lg { gap: var(--golden-large); }
+  .space-golden-xl { gap: var(--golden-xl); }
+  
+  .p-golden-sm { padding: var(--golden-small); }
+  .p-golden { padding: var(--golden-base); }
+  .p-golden-lg { padding: var(--golden-large); }
+  .p-golden-xl { padding: var(--golden-xl); }
+  
+  .mb-golden { margin-bottom: var(--golden-base); }
+  .mb-golden-lg { margin-bottom: var(--golden-large); }
+  .mb-golden-xl { margin-bottom: var(--golden-xl); }
+  
+  /* Elegant transitions */
+  .transition-elegant { transition: var(--transition-elegant); }
+  .transition-swift { transition: var(--transition-swift); }
+  
+  /* Custom shadows */
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-elegant hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .hover-glow {
+    @apply transition-elegant hover:shadow-elegant;
+  }
+  
+  /* Section spacing using golden ratio */
+  .section-spacing {
+    padding-top: var(--golden-xl);
+    padding-bottom: var(--golden-xl);
+  }
+  
+  /* Image aspect ratios based on golden ratio */
+  .aspect-golden {
+    aspect-ratio: 1.618;
+  }
+  
+  .aspect-golden-portrait {
+    aspect-ratio: 0.618;
   }
 }
