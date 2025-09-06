@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 import { CatFace } from '@/components/CatFace';
+import { useToast } from '@/hooks/use-toast';
 
 // Import generated images
 import profilePhoto from '@/assets/profile-photo.jpg';
@@ -28,6 +29,19 @@ const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
   const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
 
   const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
   const electronicsImages = [pcbBoard1, electronics2, electronics3];
@@ -138,25 +152,25 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
-                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevPhoto}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextPhoto}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
@@ -230,25 +244,25 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
-                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevHobby}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextHobby}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
@@ -279,25 +293,25 @@ const Index = () => {
                   />
                 </div>
                 
-                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevElectronics}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextElectronics}
-                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
@@ -343,8 +357,20 @@ const Index = () => {
             <Card 
               className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
               data-contact="email"
-              onClick={() => {
-                window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
+              onClick={async () => {
+                if (isDesktop) {
+                  try {
+                    await navigator.clipboard.writeText('rpatra@mtu.edu');
+                    toast({
+                      title: "Email copied!",
+                      description: "rpatra@mtu.edu has been copied to clipboard",
+                    });
+                  } catch (err) {
+                    console.log('Fallback: Could not copy text');
+                  }
+                } else {
+                  window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
+                }
               }}
             >
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
@@ -358,7 +384,10 @@ const Index = () => {
               onClick={async () => {
                 try {
                   await navigator.clipboard.writeText('+1 906 281 7933');
-                  // You could add a toast notification here
+                  toast({
+                    title: "Phone number copied!",
+                    description: "+1 906 281 7933 has been copied to clipboard",
+                  });
                 } catch (err) {
                   console.log('Fallback: Could not copy text');
                 }
