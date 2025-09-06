@@ -78,24 +78,33 @@ const Index = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex justify-between items-center">
+          <div className="md:hidden flex justify-between items-center relative z-50">
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-muted-foreground hover:text-foreground"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}
+              className="text-muted-foreground hover:text-foreground relative z-50"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
             
-            <a 
-              href={externalLinks.resume} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-muted-foreground hover:text-foreground transition-swift text-sm font-medium"
+            <Button
+              asChild
+              variant="ghost"
+              className="text-muted-foreground hover:text-foreground transition-swift text-sm font-medium relative z-50"
             >
-              {linkText.resume}
-            </a>
+              <a 
+                href={externalLinks.resume} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {linkText.resume}
+              </a>
+            </Button>
           </div>
         </div>
 
