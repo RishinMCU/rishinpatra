@@ -107,36 +107,61 @@ const Index = () => {
             <div className="flex flex-col items-center space-y-6 text-xl">
               <a 
                 href="#about" 
-                className="text-muted-foreground hover:text-foreground transition-swift"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 About
               </a>
               <a 
                 href="#photography" 
-                className="text-muted-foreground hover:text-foreground transition-swift"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('photography')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Photography
               </a>
               <a 
                 href="#hobbies" 
-                className="text-muted-foreground hover:text-foreground transition-swift"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('hobbies')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Hobbies
               </a>
               <a 
                 href="#electronics" 
-                className="text-muted-foreground hover:text-foreground transition-swift"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('electronics')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Electronics
               </a>
               <a 
                 href="#contact" 
-                className="text-muted-foreground hover:text-foreground transition-swift"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                onClick={(e) => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Contact
               </a>
