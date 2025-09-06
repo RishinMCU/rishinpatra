@@ -6,12 +6,13 @@ interface CatFaceProps {
 
 export const CatFace = ({ className = "" }: CatFaceProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [expression, setExpression] = useState<'normal' | 'smile' | 'wink' | 'tongue'>('normal');
+  const [expression, setExpression] = useState<'normal' | 'smile' | 'wink' | 'tongue' | 'surprise'>('normal');
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isHoveringCat, setIsHoveringCat] = useState(false);
   const catRef = useRef<HTMLDivElement>(null);
   const transitionTimeoutRef = useRef<NodeJS.Timeout>();
 
-  const changeExpression = (newExpression: 'normal' | 'smile' | 'wink' | 'tongue') => {
+  const changeExpression = (newExpression: 'normal' | 'smile' | 'wink' | 'tongue' | 'surprise') => {
     if (isTransitioning) return;
     
     setIsTransitioning(true);
@@ -33,10 +34,10 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    const handleEmailHover = () => changeExpression('smile');
-    const handleLocationHover = () => changeExpression('wink');
-    const handlePhoneHover = () => changeExpression('tongue');
-    const handleLeave = () => changeExpression('normal');
+    const handleEmailHover = () => !isHoveringCat && changeExpression('smile');
+    const handleLocationHover = () => !isHoveringCat && changeExpression('wink');
+    const handlePhoneHover = () => !isHoveringCat && changeExpression('tongue');
+    const handleLeave = () => !isHoveringCat && changeExpression('normal');
 
     // Add mouse move listener
     window.addEventListener('mousemove', handleMouseMove);
@@ -102,6 +103,8 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
         return 'M 24 40 Q 30 44 36 40';
       case 'tongue':
         return 'M 24 38 Q 30 42 36 38 M 28 42 L 32 42 L 32 46 L 28 46 Z';
+      case 'surprise':
+        return 'M 28 40 L 32 40 M 30 38 L 30 42';
       default:
         return 'M 24 40 Q 30 42 36 40';
     }
@@ -111,6 +114,14 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
     <div 
       ref={catRef}
       className={`relative inline-block transition-all duration-300 group ${className}`}
+      onMouseEnter={() => {
+        setIsHoveringCat(true);
+        changeExpression('surprise');
+      }}
+      onMouseLeave={() => {
+        setIsHoveringCat(false);
+        changeExpression('normal');
+      }}
     >
       <svg 
         width="60" 
@@ -140,8 +151,8 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
         <ellipse 
           cx="18" 
           cy="22" 
-          rx="4" 
-          ry={expression === 'wink' ? "0.5" : "4"}
+          rx={expression === 'surprise' ? "5" : "4"}
+          ry={expression === 'wink' ? "0.5" : expression === 'surprise' ? "5" : "4"}
           fill="hsl(var(--background))" 
           stroke="hsl(var(--primary))" 
           strokeWidth="1"
@@ -151,7 +162,7 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
           <circle 
             cx={18 + leftEyePos.x} 
             cy={22 + leftEyePos.y} 
-            r="2" 
+            r={expression === 'surprise' ? "2.5" : "2"}
             fill="hsl(var(--primary))"
             className="transition-all duration-100"
           />
@@ -161,16 +172,17 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
         <ellipse 
           cx="42" 
           cy="22" 
-          rx="4" 
-          ry="4"
+          rx={expression === 'surprise' ? "5" : "4"}
+          ry={expression === 'surprise' ? "5" : "4"}
           fill="hsl(var(--background))" 
           stroke="hsl(var(--primary))" 
           strokeWidth="1"
+          className="transition-all duration-200"
         />
         <circle 
           cx={42 + rightEyePos.x} 
           cy={22 + rightEyePos.y} 
-          r="2" 
+          r={expression === 'surprise' ? "2.5" : "2"}
           fill="hsl(var(--primary))"
           className="transition-all duration-100"
         />
@@ -199,11 +211,6 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
           <line x1="45" y1="32" x2="52" y2="32" />
         </g>
       </svg>
-      
-      {/* Surprise emoji overlay */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <span className="text-2xl animate-scale-in">😲</span>
-      </div>
     </div>
   );
 };

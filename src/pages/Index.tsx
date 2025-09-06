@@ -340,19 +340,39 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 hover-lift shadow-elegant" data-contact="email">
+            <Card 
+              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              onClick={() => {
+                window.open(`mailto:hello@portfolio.com?subject=Hello&body=Hi there!`);
+              }}
+            >
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
               <p className="text-muted-foreground">hello@portfolio.com</p>
             </Card>
             
-            <Card className="p-8 hover-lift shadow-elegant" data-contact="phone">
+            <Card 
+              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText('+1 (555) 123-4567');
+                  // You could add a toast notification here
+                } catch (err) {
+                  console.log('Fallback: Could not copy text');
+                }
+              }}
+            >
               <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Phone</h3>
               <p className="text-muted-foreground">+1 (555) 123-4567</p>
             </Card>
             
-            <Card className="p-8 hover-lift shadow-elegant" data-contact="location">
+            <Card 
+              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              onClick={() => {
+                window.open('https://maps.google.com/?q=Available+Worldwide', '_blank');
+              }}
+            >
               <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
               <p className="text-muted-foreground">Available Worldwide</p>
