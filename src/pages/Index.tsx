@@ -139,38 +139,38 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
             {/* Images on left - larger */}
-            <div className="relative lg:col-span-2">
+            <div className="relative lg:col-span-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-video min-h-80">
+                <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
                   <img 
                     src={photographyImages[currentPhotoIndex]} 
                     alt={`Photography ${currentPhotoIndex + 1}`}
-                    className="w-full h-full object-cover transition-elegant"
+                    className="w-full h-full object-cover object-center transition-elegant"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
-                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevPhoto}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextPhoto}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
@@ -210,9 +210,9 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
             {/* Text content on left */}
-            <div className="space-y-6 lg:col-span-1">
+            <div className="space-y-6 lg:col-span-1 order-2 lg:order-1">
               <h3 className="text-2xl font-light text-primary mb-4">RC Aviation & Model Building</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Flying RC aircraft has taught me precision, patience, and the thrill of aerodynamics. 
@@ -233,36 +233,36 @@ const Index = () => {
             </div>
 
             {/* Images on right - larger */}
-            <div className="relative lg:col-span-2">
+            <div className="relative lg:col-span-2 order-1 lg:order-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-video min-h-80">
+                <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
                   <img 
                     src={hobbyImages[currentHobbyIndex]} 
                     alt={`Hobby ${currentHobbyIndex + 1}`}
-                    className="w-full h-full object-cover transition-elegant"
+                    className="w-full h-full object-cover object-center transition-elegant"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
-                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevHobby}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextHobby}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
@@ -281,37 +281,37 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
             {/* Images on left - larger */}
-            <div className="relative lg:col-span-2">
+            <div className="relative lg:col-span-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-video min-h-80">
+                <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
                   <img 
                     src={electronicsImages[currentElectronicsIndex]} 
                     alt={`Electronics ${currentElectronicsIndex + 1}`}
-                    className="w-full h-full object-cover transition-elegant"
+                    className="w-full h-full object-cover object-center transition-elegant"
                   />
                 </div>
                 
-                <div className="absolute top-1/2 left-2 md:left-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={prevElectronics}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
-                <div className="absolute top-1/2 right-2 md:right-4 transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
                   <Button 
                     variant="secondary" 
                     size="icon" 
                     onClick={nextElectronics}
-                    className="bg-background/80 backdrop-blur-sm hover-lift w-8 h-8 md:w-10 md:h-10"
+                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
                   >
-                    <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+                    <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
               </Card>
