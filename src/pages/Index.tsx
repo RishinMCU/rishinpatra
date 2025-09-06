@@ -105,10 +105,10 @@ const Index = () => {
         {/* Mobile Menu Card - Only show when open */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-4 right-4 z-[55] mt-2">
-            <div className="relative bg-background/5 backdrop-blur-3xl border border-white/30 rounded-xl shadow-2xl p-8 
-                          before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/30 before:via-white/10 before:to-white/20 
+            <div className="relative bg-white/20 backdrop-blur-3xl border border-white/50 rounded-xl shadow-2xl p-8 
+                          before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:via-white/30 before:to-white/50 
                           before:rounded-xl before:backdrop-blur-2xl
-                          after:absolute after:inset-0 after:bg-gradient-to-t after:from-background/20 after:to-transparent 
+                          after:absolute after:inset-0 after:bg-gradient-to-t after:from-white/40 after:via-white/20 after:to-white/30 
                           after:rounded-xl after:backdrop-blur-xl">
               <div className="relative z-10 flex flex-col items-center space-y-6 text-xl">
                 <a 
