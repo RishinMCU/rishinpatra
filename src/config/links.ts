@@ -1,16 +1,16 @@
 // External links configuration for easy management
 export const externalLinks = {
   // Photography links
-  flickr: "https://flickr.com",
+  flickr: "https://www.flickr.com/photos/203526363@N08/",
   
   // Hobby/RC links  
   youtube: "https://youtube.com",
   
   // Electronics/Technical links
-  github: "https://github.com",
+  github: "https://github.com/RishinMCU",
   
   // Professional links
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/rishin-patra/",
   
   // Contact links
   email: "rpatra@mtu.edu",
