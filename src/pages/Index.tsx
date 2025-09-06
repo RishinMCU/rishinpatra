@@ -22,9 +22,13 @@ import photo11 from '@/assets/photography/photo-11.jpg';
 import rcPlane1 from '@/assets/hobbies/rc-plane-1.jpg';
 import hobby2 from '@/assets/hobbies/hobby-2.jpg';
 import hobby3 from '@/assets/hobbies/hobby-3.jpg';
+import droneRacing1 from '@/assets/hobbies/drone-racing-1.jpg';
+import rcCarRacing1 from '@/assets/hobbies/rc-car-racing-1.jpg';
 import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
 import electronics2 from '@/assets/electronics/electronics-2.jpg';
 import electronics3 from '@/assets/electronics/electronics-3.jpg';
+import advancedPcb1 from '@/assets/electronics/advanced-pcb-1.jpg';
+import arduinoPrototype1 from '@/assets/electronics/arduino-prototype-1.jpg';
 const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
@@ -43,8 +47,8 @@ const Index = () => {
     return () => window.removeEventListener('resize', checkIsDesktop);
   }, []);
   const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
-  const electronicsImages = [pcbBoard1, electronics2, electronics3];
-  const hobbyImages = [rcPlane1, hobby2, hobby3];
+  const electronicsImages = [pcbBoard1, electronics2, electronics3, advancedPcb1, arduinoPrototype1];
+  const hobbyImages = [rcPlane1, hobby2, hobby3, droneRacing1, rcCarRacing1];
   const nextPhoto = () => {
     setCurrentPhotoIndex(prev => (prev + 1) % photographyImages.length);
   };
