@@ -342,20 +342,22 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card 
               className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              data-contact="email"
               onClick={() => {
-                window.open(`mailto:hello@portfolio.com?subject=Hello&body=Hi there!`);
+                window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
               }}
             >
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
-              <p className="text-muted-foreground">hello@portfolio.com</p>
+              <p className="text-muted-foreground">rpatra@mtu.edu</p>
             </Card>
             
             <Card 
               className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              data-contact="phone"
               onClick={async () => {
                 try {
-                  await navigator.clipboard.writeText('+1 (555) 123-4567');
+                  await navigator.clipboard.writeText('+1 906 281 7933');
                   // You could add a toast notification here
                 } catch (err) {
                   console.log('Fallback: Could not copy text');
@@ -364,18 +366,19 @@ const Index = () => {
             >
               <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Phone</h3>
-              <p className="text-muted-foreground">+1 (555) 123-4567</p>
+              <p className="text-muted-foreground">+1 906 281 7933</p>
             </Card>
             
             <Card 
               className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
+              data-contact="location"
               onClick={() => {
-                window.open('https://maps.google.com/?q=Available+Worldwide', '_blank');
+                window.open('https://maps.google.com/?q=Houghton,Michigan', '_blank');
               }}
             >
               <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
-              <p className="text-muted-foreground">Available Worldwide</p>
+              <p className="text-muted-foreground">Houghton, Michigan</p>
             </Card>
           </div>
         </div>
