@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 import { CatFace } from '@/components/CatFace';
 import { useToast } from '@/hooks/use-toast';
+import { externalLinks, linkText } from '@/config/links';
 
 // Import generated images
 import profilePhoto from '@/assets/profile-photo.jpg';
@@ -70,7 +71,7 @@ const Index = () => {
             <a href="#photography" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Photography</a>
             <a href="#hobbies" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Hobbies</a>
             <a href="#electronics" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Electronics</a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Resume</a>
+            <a href={externalLinks.resume} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">{linkText.resume}</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Contact</a>
           </div>
         </div>
@@ -80,8 +81,6 @@ const Index = () => {
       <section className="section-spacing pt-32 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">
-            <span className="text-foreground">Creative</span>
-            <br />
             <span className="text-primary font-medium">Portfolio</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -160,8 +159,8 @@ const Index = () => {
               </p>
               <div className="pt-4">
                 <Button asChild className="hover-lift">
-                  <a href="https://flickr.com" target="_blank" rel="noopener noreferrer">
-                    View Full Gallery on Flickr
+                  <a href={externalLinks.flickr} target="_blank" rel="noopener noreferrer">
+                    {linkText.flickr}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -196,8 +195,8 @@ const Index = () => {
               </p>
               <div className="pt-4">
                 <Button asChild className="hover-lift">
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                    Watch Videos
+                  <a href={externalLinks.youtube} target="_blank" rel="noopener noreferrer">
+                    {linkText.youtube}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -274,8 +273,8 @@ const Index = () => {
               </p>
               <div className="pt-4">
                 <Button asChild className="hover-lift">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    View Projects on GitHub
+                  <a href={externalLinks.github} target="_blank" rel="noopener noreferrer">
+                    {linkText.github}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -301,16 +300,16 @@ const Index = () => {
             <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="email" onClick={async () => {
             if (isDesktop) {
               try {
-                await navigator.clipboard.writeText('rpatra@mtu.edu');
+                await navigator.clipboard.writeText(externalLinks.email);
                 toast({
                   title: "Email copied!",
-                  description: "rpatra@mtu.edu has been copied to clipboard"
+                  description: `${externalLinks.email} has been copied to clipboard`
                 });
               } catch (err) {
                 console.log('Fallback: Could not copy text');
               }
             } else {
-              window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
+              window.open(`mailto:${externalLinks.email}?subject=Hello&body=Hi there!`);
             }
           }}>
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
