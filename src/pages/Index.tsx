@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone, Linkedin } from 'lucide-react';
 import { CatFace } from '@/components/CatFace';
 import { useToast } from '@/hooks/use-toast';
 import { externalLinks, linkText } from '@/config/links';
@@ -336,7 +336,18 @@ const Index = () => {
             <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="location" onClick={() => {
             window.open('https://maps.google.com/?q=Houghton,Michigan', '_blank');
           }}>
-              <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <MapPin className="h-8 w-8 text-primary" />
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(externalLinks.linkedin, '_blank');
+                  }}
+                  className="hover:scale-110 transition-transform"
+                >
+                  <Linkedin className="h-8 w-8 text-primary" />
+                </button>
+              </div>
               <h3 className="text-lg font-medium mb-2">Location</h3>
               <p className="text-muted-foreground">Houghton, Michigan</p>
             </Card>
