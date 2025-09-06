@@ -100,12 +100,10 @@ const Index = () => {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-xl border-t border-border/50 transition-all duration-300 ${
+        <div className={`md:hidden fixed inset-0 bg-background transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`} style={{ top: '73px' }}>
-          {/* Frosted glass overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/95 to-background/90 backdrop-blur-2xl"></div>
-          <div className={`relative z-10 flex flex-col items-center justify-center h-full space-y-8 text-2xl transition-all duration-500 ${
+          <div className={`flex flex-col items-center justify-start pt-20 h-full space-y-8 text-2xl transition-all duration-500 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
             <a 
