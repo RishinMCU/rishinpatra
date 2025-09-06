@@ -24,11 +24,11 @@ import hobby2 from '@/assets/hobbies/hobby-2.jpg';
 import hobby3 from '@/assets/hobbies/hobby-3.jpg';
 import hobby4 from '@/assets/hobbies/hobby-4.jpg';
 import hobby5 from '@/assets/hobbies/hobby-5.jpg';
-import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
-import electronics2 from '@/assets/electronics/electronics-2.jpg';
-import electronics3 from '@/assets/electronics/electronics-3.jpg';
-import advancedPcb1 from '@/assets/electronics/advanced-pcb-1.jpg';
-import arduinoPrototype1 from '@/assets/electronics/arduino-prototype-1.jpg';
+import ele1 from '@/assets/electronics/ele-1.jpg';
+import ele2 from '@/assets/electronics/ele-2.jpg';
+import ele3 from '@/assets/electronics/ele-3.jpg';
+import ele4 from '@/assets/electronics/ele-4.jpg';
+import ele5 from '@/assets/electronics/ele-5.jpg';
 const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
@@ -47,7 +47,7 @@ const Index = () => {
     return () => window.removeEventListener('resize', checkIsDesktop);
   }, []);
   const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
-  const electronicsImages = [pcbBoard1, electronics2, electronics3, advancedPcb1, arduinoPrototype1];
+  const electronicsImages = [ele1, ele2, ele3, ele4, ele5];
   const hobbyImages = [hobby1, hobby2, hobby3, hobby4, hobby5];
   const nextPhoto = () => {
     setCurrentPhotoIndex(prev => (prev + 1) % photographyImages.length);
