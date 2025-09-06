@@ -24,55 +24,44 @@ import hobby3 from '@/assets/hobbies/hobby-3.jpg';
 import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
 import electronics2 from '@/assets/electronics/electronics-2.jpg';
 import electronics3 from '@/assets/electronics/electronics-3.jpg';
-
 const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
   const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     const checkIsDesktop = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
-    
     checkIsDesktop();
     window.addEventListener('resize', checkIsDesktop);
-    
     return () => window.removeEventListener('resize', checkIsDesktop);
   }, []);
-
   const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
   const electronicsImages = [pcbBoard1, electronics2, electronics3];
   const hobbyImages = [rcPlane1, hobby2, hobby3];
-
   const nextPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev + 1) % photographyImages.length);
+    setCurrentPhotoIndex(prev => (prev + 1) % photographyImages.length);
   };
-
   const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev - 1 + photographyImages.length) % photographyImages.length);
+    setCurrentPhotoIndex(prev => (prev - 1 + photographyImages.length) % photographyImages.length);
   };
-
   const nextElectronics = () => {
-    setCurrentElectronicsIndex((prev) => (prev + 1) % electronicsImages.length);
+    setCurrentElectronicsIndex(prev => (prev + 1) % electronicsImages.length);
   };
-
   const prevElectronics = () => {
-    setCurrentElectronicsIndex((prev) => (prev - 1 + electronicsImages.length) % electronicsImages.length);
+    setCurrentElectronicsIndex(prev => (prev - 1 + electronicsImages.length) % electronicsImages.length);
   };
-
   const nextHobby = () => {
-    setCurrentHobbyIndex((prev) => (prev + 1) % hobbyImages.length);
+    setCurrentHobbyIndex(prev => (prev + 1) % hobbyImages.length);
   };
-
   const prevHobby = () => {
-    setCurrentHobbyIndex((prev) => (prev - 1 + hobbyImages.length) % hobbyImages.length);
+    setCurrentHobbyIndex(prev => (prev - 1 + hobbyImages.length) % hobbyImages.length);
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-hero">
+  return <div className="min-h-screen bg-gradient-hero">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-4 py-4">
@@ -106,31 +95,17 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-4xl font-light text-primary mb-golden-lg">About Me</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm Rishin Patra, an electronics engineer and master's student at Michigan Technological University, graduating in December 2025. 
-                My work revolves around designing embedded analog and digital circuits, RF systems, and custom PCBs. I enjoy taking an idea from 
-                schematic to prototype—whether that's a low-power NFC sensor, a fault-simulating HVDC converter, or a battery management system 
-                for automotive applications.
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">I'm Rishin Patra, an electronics engineer and master's student at Michigan Technological University. My work revolves around designing embedded analog and digital circuits, RF systems, and custom PCBs. I enjoy taking an idea from schematic to prototype whether that's a low-power NFC sensor, a fault-simulating HVDC converter, or a battery management system for automotive applications.</p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 During my research at MTU, I've developed batteryless NFC-based sensors, designed HVDC systems, and contributed to battery 
                 management systems at the Automotive Research Association of India. I work with platforms like KiCad, Altium, Cadence, 
                 and embedded C/C++, bringing together hardware and software to create efficient, real-world solutions.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Beyond engineering, I channel my curiosity into mountain biking, go-kart racing, flying RC planes, and piloting FPV drones. 
-                I'm also passionate about photography and videography, experimenting with perspective and motion to capture the world from 
-                new angles. For me, engineering and photography are two sides of the same coin—one builds the tools, the other uses them 
-                to reimagine the world.
-              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">Beyond engineering, I channel my curiosity into mountain biking, go-kart racing, flying RC planes, and piloting FPV drones. I'm also passionate about photography and videography, experimenting with perspective and motion to capture the world from new angles. For me, engineering and photography are two sides of the same coin one builds the tools, the other uses them to reimagine the world.</p>
             </div>
             <div className="flex justify-center">
               <div className="relative">
-                <img 
-                  src={profilePhoto} 
-                  alt="Profile"
-                  className="w-80 h-80 object-cover rounded-2xl shadow-elegant hover-lift"
-                />
+                <img src={profilePhoto} alt="Profile" className="w-80 h-80 object-cover rounded-2xl shadow-elegant hover-lift" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-accent opacity-20"></div>
               </div>
             </div>
@@ -153,32 +128,18 @@ const Index = () => {
             <div className="relative lg:col-span-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
                 <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
-                  <img 
-                    src={photographyImages[currentPhotoIndex]} 
-                    alt={`Photography ${currentPhotoIndex + 1}`}
-                    className="w-full h-full object-cover object-center transition-elegant"
-                  />
+                  <img src={photographyImages[currentPhotoIndex]} alt={`Photography ${currentPhotoIndex + 1}`} className="w-full h-full object-cover object-center transition-elegant" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
                 <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={prevPhoto}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={prevPhoto} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
                 <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={nextPhoto}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={nextPhoto} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
@@ -246,32 +207,18 @@ const Index = () => {
             <div className="relative lg:col-span-2 order-1 lg:order-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
                 <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
-                  <img 
-                    src={hobbyImages[currentHobbyIndex]} 
-                    alt={`Hobby ${currentHobbyIndex + 1}`}
-                    className="w-full h-full object-cover object-center transition-elegant"
-                  />
+                  <img src={hobbyImages[currentHobbyIndex]} alt={`Hobby ${currentHobbyIndex + 1}`} className="w-full h-full object-cover object-center transition-elegant" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
                 <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={prevHobby}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={prevHobby} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
                 <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={nextHobby}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={nextHobby} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
@@ -296,31 +243,17 @@ const Index = () => {
             <div className="relative lg:col-span-2 mx-auto w-full max-w-full">
               <Card className="overflow-hidden shadow-elegant hover-glow">
                 <div className="relative aspect-[4/3] sm:aspect-video min-h-60 sm:min-h-80">
-                  <img 
-                    src={electronicsImages[currentElectronicsIndex]} 
-                    alt={`Electronics ${currentElectronicsIndex + 1}`}
-                    className="w-full h-full object-cover object-center transition-elegant"
-                  />
+                  <img src={electronicsImages[currentElectronicsIndex]} alt={`Electronics ${currentElectronicsIndex + 1}`} className="w-full h-full object-cover object-center transition-elegant" />
                 </div>
                 
                 <div className="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={prevElectronics}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={prevElectronics} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronLeft className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
                 
                 <div className="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2">
-                  <Button 
-                    variant="secondary" 
-                    size="icon" 
-                    onClick={nextElectronics}
-                    className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                  >
+                  <Button variant="secondary" size="icon" onClick={nextElectronics} className="bg-background/90 backdrop-blur-sm hover-lift w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10">
                     <ChevronRight className="h-3 w-3 sm:h-3 sm:w-3 md:h-4 md:w-4" />
                   </Button>
                 </div>
@@ -364,57 +297,45 @@ const Index = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card 
-              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
-              data-contact="email"
-              onClick={async () => {
-                if (isDesktop) {
-                  try {
-                    await navigator.clipboard.writeText('rpatra@mtu.edu');
-                    toast({
-                      title: "Email copied!",
-                      description: "rpatra@mtu.edu has been copied to clipboard",
-                    });
-                  } catch (err) {
-                    console.log('Fallback: Could not copy text');
-                  }
-                } else {
-                  window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
-                }
-              }}
-            >
+            <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="email" onClick={async () => {
+            if (isDesktop) {
+              try {
+                await navigator.clipboard.writeText('rpatra@mtu.edu');
+                toast({
+                  title: "Email copied!",
+                  description: "rpatra@mtu.edu has been copied to clipboard"
+                });
+              } catch (err) {
+                console.log('Fallback: Could not copy text');
+              }
+            } else {
+              window.open(`mailto:rpatra@mtu.edu?subject=Hello&body=Hi there!`);
+            }
+          }}>
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
               <p className="text-muted-foreground">rpatra@mtu.edu</p>
             </Card>
             
-            <Card 
-              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
-              data-contact="phone"
-              onClick={async () => {
-                try {
-                  await navigator.clipboard.writeText('+1 906 281 7933');
-                  toast({
-                    title: "Phone number copied!",
-                    description: "+1 906 281 7933 has been copied to clipboard",
-                  });
-                } catch (err) {
-                  console.log('Fallback: Could not copy text');
-                }
-              }}
-            >
+            <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="phone" onClick={async () => {
+            try {
+              await navigator.clipboard.writeText('+1 906 281 7933');
+              toast({
+                title: "Phone number copied!",
+                description: "+1 906 281 7933 has been copied to clipboard"
+              });
+            } catch (err) {
+              console.log('Fallback: Could not copy text');
+            }
+          }}>
               <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Phone</h3>
               <p className="text-muted-foreground">+1 906 281 7933</p>
             </Card>
             
-            <Card 
-              className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" 
-              data-contact="location"
-              onClick={() => {
-                window.open('https://maps.google.com/?q=Houghton,Michigan', '_blank');
-              }}
-            >
+            <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="location" onClick={() => {
+            window.open('https://maps.google.com/?q=Houghton,Michigan', '_blank');
+          }}>
               <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
               <p className="text-muted-foreground">Houghton, Michigan</p>
@@ -427,8 +348,6 @@ const Index = () => {
       <footer className="py-8 text-center text-muted-foreground border-t border-border">
         <p>&copy; 2024 Creative Portfolio. Crafted with passion and precision.</p>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
