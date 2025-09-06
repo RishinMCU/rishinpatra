@@ -159,7 +159,7 @@
   
   /* Hover effects */
   .hover-lift {
-    @apply transition-elegant hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 hover:scale-105 transform;
   }
   
   .hover-glow {
