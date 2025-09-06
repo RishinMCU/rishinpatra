@@ -189,12 +189,12 @@ const Index = () => {
             <div className="space-y-6 lg:col-span-1">
               <h3 className="text-2xl font-light text-primary mb-4">My Photography Journey</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I capture the world through my Canon EOS R5 with a collection of prime and zoom lenses. 
-                From street photography to landscapes, each shot tells a unique story.
+                I capture the world through my GoPro, iPhone, and drone, experimenting with perspective and motion. 
+                From aerial landscapes to trail adventures, each shot tells a unique story of exploration.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My work focuses on natural light, composition, and finding beauty in everyday moments. 
-                I specialize in portrait, landscape, and urban photography with a minimalist approach.
+                My work focuses on finding beauty in movement and adventure, combining technology with creativity 
+                to capture moments from unique angles and viewpoints that traditional photography can't reach.
               </p>
               <div className="pt-4">
                 <Button asChild className="hover-lift">
@@ -222,14 +222,15 @@ const Index = () => {
           <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-center">
             {/* Text content on left */}
             <div className="space-y-6 lg:col-span-1 order-2 lg:order-1">
-              <h3 className="text-2xl font-light text-primary mb-4">RC Aviation & Model Building</h3>
+              <h3 className="text-2xl font-light text-primary mb-4">RC Aviation & Outdoor Adventures</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Flying RC aircraft has taught me precision, patience, and the thrill of aerodynamics. 
-                From building custom planes to mastering complex maneuvers, it's engineering in motion.
+                I build and fly RC planes, pilot FPV drones, and race RC cars. These activities teach me precision, patience, 
+                and the thrill of engineering in motion. From custom builds to mastering complex maneuvers, each project 
+                combines technical skill with pure excitement.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Each model represents hours of careful assembly, tuning, and testing. 
-                I love sharing the joy of flight and the technical aspects of aviation through my videos.
+                Beyond RC hobbies, I enjoy hiking, mountain biking, go-kart racing, and amateur radio (ham radio). 
+                These outdoor pursuits keep me energized and provide endless opportunities for adventure and learning.
               </p>
               <div className="pt-4">
                 <Button asChild className="hover-lift">
