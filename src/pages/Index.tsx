@@ -296,7 +296,7 @@ const Index = () => {
             I'd love to hear from you.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="email" onClick={async () => {
             if (isDesktop) {
               try {
@@ -336,20 +336,17 @@ const Index = () => {
             <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" data-contact="location" onClick={() => {
             window.open('https://maps.google.com/?q=Houghton,Michigan', '_blank');
           }}>
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <MapPin className="h-8 w-8 text-primary" />
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(externalLinks.linkedin, '_blank');
-                  }}
-                  className="hover:scale-110 transition-transform"
-                >
-                  <Linkedin className="h-8 w-8 text-primary" />
-                </button>
-              </div>
+              <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
               <p className="text-muted-foreground">Houghton, Michigan</p>
+            </Card>
+            
+            <Card className="p-8 hover-lift shadow-elegant cursor-pointer transition-all duration-200 hover:bg-accent/50" onClick={() => {
+            window.open(externalLinks.linkedin, '_blank');
+          }}>
+              <Linkedin className="h-8 w-8 text-primary mx-auto mb-4" />
+              <h3 className="text-lg font-medium mb-2">LinkedIn</h3>
+              <p className="text-muted-foreground">Connect with me</p>
             </Card>
           </div>
         </div>
