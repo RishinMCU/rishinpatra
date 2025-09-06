@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
+import { CatFace } from '@/components/CatFace';
 
 // Import generated images
 import profilePhoto from '@/assets/profile-photo.jpg';
@@ -241,26 +242,29 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="section-spacing">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-light text-primary mb-8">Get In Touch</h2>
+          <div className="flex justify-center items-center gap-4 mb-8">
+            <h2 className="text-4xl font-light text-primary">Get In Touch</h2>
+            <CatFace className="animate-fade-in" />
+          </div>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             Interested in collaborating or just want to chat about photography, RC aviation, or electronics? 
             I'd love to hear from you.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 hover-lift shadow-elegant">
+            <Card className="p-8 hover-lift shadow-elegant" data-contact="email">
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Email</h3>
               <p className="text-muted-foreground">hello@portfolio.com</p>
             </Card>
             
-            <Card className="p-8 hover-lift shadow-elegant">
+            <Card className="p-8 hover-lift shadow-elegant" data-contact="phone">
               <Phone className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Phone</h3>
               <p className="text-muted-foreground">+1 (555) 123-4567</p>
             </Card>
             
-            <Card className="p-8 hover-lift shadow-elegant">
+            <Card className="p-8 hover-lift shadow-elegant" data-contact="location">
               <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-medium mb-2">Location</h3>
               <p className="text-muted-foreground">Available Worldwide</p>
