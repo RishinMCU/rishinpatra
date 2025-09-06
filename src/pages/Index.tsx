@@ -99,53 +99,48 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`} style={{ top: '73px' }}>
-          {/* Multi-layer frosty glass effect */}
-          <div className="absolute inset-0 bg-white/20 dark:bg-black/20"></div>
-          <div className="absolute inset-0 backdrop-blur-xl"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/20 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/30"></div>
-          
-          <div className={`relative z-50 flex flex-col items-center justify-start pt-12 h-full space-y-8 text-2xl transition-all duration-500 ${
-            isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}>
-            <a 
-              href="#about" 
-              className="text-muted-foreground hover:text-foreground transition-swift"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a 
-              href="#photography" 
-              className="text-muted-foreground hover:text-foreground transition-swift"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Photography
-            </a>
-            <a 
-              href="#hobbies" 
-              className="text-muted-foreground hover:text-foreground transition-swift"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Hobbies
-            </a>
-            <a 
-              href="#electronics" 
-              className="text-muted-foreground hover:text-foreground transition-swift"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Electronics
-            </a>
-            <a 
-              href="#contact" 
-              className="text-muted-foreground hover:text-foreground transition-swift"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
+        {/* Mobile Menu Card */}
+        <div className={`md:hidden fixed top-[73px] left-4 right-4 z-50 transition-all duration-300 ${
+          isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        }`}>
+          <div className="bg-background border border-border rounded-xl shadow-2xl p-8">
+            <div className="flex flex-col items-center space-y-6 text-xl">
+              <a 
+                href="#about" 
+                className="text-muted-foreground hover:text-foreground transition-swift"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a 
+                href="#photography" 
+                className="text-muted-foreground hover:text-foreground transition-swift"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Photography
+              </a>
+              <a 
+                href="#hobbies" 
+                className="text-muted-foreground hover:text-foreground transition-swift"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Hobbies
+              </a>
+              <a 
+                href="#electronics" 
+                className="text-muted-foreground hover:text-foreground transition-swift"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Electronics
+              </a>
+              <a 
+                href="#contact" 
+                className="text-muted-foreground hover:text-foreground transition-swift"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
       </nav>
