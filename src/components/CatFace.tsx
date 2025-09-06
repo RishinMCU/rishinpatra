@@ -87,7 +87,7 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
   return (
     <div 
       ref={catRef}
-      className={`inline-block transition-all duration-300 pointer-events-none ${className}`}
+      className={`relative inline-block transition-all duration-300 pointer-events-none group ${className}`}
     >
       <svg 
         width="60" 
@@ -176,6 +176,11 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
           <line x1="45" y1="32" x2="52" y2="32" />
         </g>
       </svg>
+      
+      {/* Surprise emoji overlay */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <span className="text-2xl animate-scale-in">😲</span>
+      </div>
     </div>
   );
 };

@@ -129,7 +129,7 @@ const Index = () => {
             {/* Images on left - larger */}
             <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-[4/3] h-96">
+                <div className="relative aspect-video min-h-80">
                   <img 
                     src={photographyImages[currentPhotoIndex]} 
                     alt={`Photography ${currentPhotoIndex + 1}`}
@@ -221,7 +221,7 @@ const Index = () => {
             {/* Images on right - larger */}
             <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-[4/3] h-96">
+                <div className="relative aspect-video min-h-80">
                   <img 
                     src={hobbyImages[currentHobbyIndex]} 
                     alt={`Hobby ${currentHobbyIndex + 1}`}
@@ -271,7 +271,7 @@ const Index = () => {
             {/* Images on left - larger */}
             <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-[4/3] h-96">
+                <div className="relative aspect-video min-h-80">
                   <img 
                     src={electronicsImages[currentElectronicsIndex]} 
                     alt={`Electronics ${currentElectronicsIndex + 1}`}
