@@ -103,8 +103,10 @@ const Index = () => {
         <div className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`} style={{ top: '73px' }}>
-          {/* Frosty glass background overlay */}
-          <div className="absolute inset-0 bg-background/90 backdrop-blur-lg"></div>
+          {/* Multi-layer frosty glass effect */}
+          <div className="absolute inset-0 bg-white/20 dark:bg-black/20"></div>
+          <div className="absolute inset-0 backdrop-blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/20 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/30"></div>
           
           <div className={`relative z-50 flex flex-col items-center justify-start pt-12 h-full space-y-8 text-2xl transition-all duration-500 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
