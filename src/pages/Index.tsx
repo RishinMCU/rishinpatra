@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone, Linkedin } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Mail, MapPin, Phone, Linkedin, Menu, X } from 'lucide-react';
 import { CatFace } from '@/components/CatFace';
 import { useToast } from '@/hooks/use-toast';
 import { externalLinks, linkText } from '@/config/links';
@@ -30,6 +30,7 @@ const Index = () => {
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
   const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const {
     toast
   } = useToast();
@@ -66,13 +67,80 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex justify-center space-x-4 md:space-x-8 text-sm md:text-base">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex justify-center space-x-8 text-base">
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">About</a>
             <a href="#photography" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Photography</a>
             <a href="#hobbies" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Hobbies</a>
             <a href="#electronics" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Electronics</a>
             <a href={externalLinks.resume} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">{linkText.resume}</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-swift whitespace-nowrap">Contact</a>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex justify-between items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+            
+            <a 
+              href={externalLinks.resume} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-muted-foreground hover:text-foreground transition-swift text-sm font-medium"
+            >
+              {linkText.resume}
+            </a>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-md transition-all duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`} style={{ top: '73px' }}>
+          <div className={`flex flex-col items-center justify-center h-full space-y-8 text-2xl transition-all duration-500 ${
+            isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <a 
+              href="#about" 
+              className="text-muted-foreground hover:text-foreground transition-swift"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </a>
+            <a 
+              href="#photography" 
+              className="text-muted-foreground hover:text-foreground transition-swift"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Photography
+            </a>
+            <a 
+              href="#hobbies" 
+              className="text-muted-foreground hover:text-foreground transition-swift"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Hobbies
+            </a>
+            <a 
+              href="#electronics" 
+              className="text-muted-foreground hover:text-foreground transition-swift"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Electronics
+            </a>
+            <a 
+              href="#contact" 
+              className="text-muted-foreground hover:text-foreground transition-swift"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
           </div>
         </div>
       </nav>
