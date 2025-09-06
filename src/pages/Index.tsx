@@ -125,11 +125,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Images on left */}
-            <div className="relative">
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            {/* Images on left - larger */}
+            <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-golden">
+                <div className="relative aspect-[4/3] h-96">
                   <img 
                     src={photographyImages[currentPhotoIndex]} 
                     alt={`Photography ${currentPhotoIndex + 1}`}
@@ -163,7 +163,7 @@ const Index = () => {
             </div>
 
             {/* Text content on right */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-1">
               <h3 className="text-2xl font-light text-primary mb-4">My Photography Journey</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I capture the world through my Canon EOS R5 with a collection of prime and zoom lenses. 
@@ -196,9 +196,9 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
             {/* Text content on left */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-1">
               <h3 className="text-2xl font-light text-primary mb-4">RC Aviation & Model Building</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Flying RC aircraft has taught me precision, patience, and the thrill of aerodynamics. 
@@ -218,10 +218,10 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Images on right */}
-            <div className="relative">
+            {/* Images on right - larger */}
+            <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-golden">
+                <div className="relative aspect-[4/3] h-96">
                   <img 
                     src={hobbyImages[currentHobbyIndex]} 
                     alt={`Hobby ${currentHobbyIndex + 1}`}
@@ -267,11 +267,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Images on left */}
-            <div className="relative">
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            {/* Images on left - larger */}
+            <div className="relative lg:col-span-2">
               <Card className="overflow-hidden shadow-elegant hover-glow">
-                <div className="relative aspect-golden">
+                <div className="relative aspect-[4/3] h-96">
                   <img 
                     src={electronicsImages[currentElectronicsIndex]} 
                     alt={`Electronics ${currentElectronicsIndex + 1}`}
@@ -304,7 +304,7 @@ const Index = () => {
             </div>
 
             {/* Text content on right */}
-            <div className="space-y-6">
+            <div className="space-y-6 lg:col-span-1">
               <h3 className="text-2xl font-light text-primary mb-4">Circuit Design & PCB Development</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 From schematic design to PCB layout, I create custom electronic solutions using KiCad and Altium Designer. 
