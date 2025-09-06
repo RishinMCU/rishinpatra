@@ -107,12 +107,21 @@ const Index = () => {
             <div className="space-y-6">
               <h2 className="text-4xl font-light text-primary mb-golden-lg">About Me</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a multi-passionate creator who finds joy in capturing the world through photography, 
-                exploring the skies with RC aircraft, and designing innovative electronic solutions.
+                I'm Rishin Patra, an electronics engineer and master's student at Michigan Technological University, graduating in December 2025. 
+                My work revolves around designing embedded analog and digital circuits, RF systems, and custom PCBs. I enjoy taking an idea from 
+                schematic to prototype—whether that's a low-power NFC sensor, a fault-simulating HVDC converter, or a battery management system 
+                for automotive applications.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Each pursuit feeds my curiosity and drives me to push creative boundaries, 
-                whether it's finding the perfect shot, mastering aerobatics, or crafting precise circuit designs.
+                During my research at MTU, I've developed batteryless NFC-based sensors, designed HVDC systems, and contributed to battery 
+                management systems at the Automotive Research Association of India. I work with platforms like KiCad, Altium, Cadence, 
+                and embedded C/C++, bringing together hardware and software to create efficient, real-world solutions.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Beyond engineering, I channel my curiosity into mountain biking, go-kart racing, flying RC planes, and piloting FPV drones. 
+                I'm also passionate about photography and videography, experimenting with perspective and motion to capture the world from 
+                new angles. For me, engineering and photography are two sides of the same coin—one builds the tools, the other uses them 
+                to reimagine the world.
               </p>
             </div>
             <div className="flex justify-center">
