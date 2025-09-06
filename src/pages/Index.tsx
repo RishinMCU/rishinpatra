@@ -78,105 +78,104 @@ const Index = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex justify-between items-center relative z-50">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
+          <div className="md:hidden flex justify-between items-center">
+            <button
+              type="button"
+              onClick={() => {
+                console.log('Menu button clicked!', isMobileMenuOpen);
                 setIsMobileMenuOpen(!isMobileMenuOpen);
               }}
-              className="text-muted-foreground hover:text-foreground relative z-50"
+              className="p-2 text-muted-foreground hover:text-foreground z-[60] relative bg-background border border-border rounded-md"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            </button>
             
-            <Button
-              asChild
-              variant="ghost"
-              className="text-muted-foreground hover:text-foreground transition-swift text-sm font-medium relative z-50"
+            <a 
+              href={externalLinks.resume} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2 text-muted-foreground hover:text-foreground transition-swift text-sm font-medium z-[60] relative bg-background border border-border rounded-md"
+              onClick={() => console.log('Resume clicked!')}
             >
-              <a 
-                href={externalLinks.resume} 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                {linkText.resume}
-              </a>
-            </Button>
+              {linkText.resume}
+            </a>
           </div>
         </div>
 
-        {/* Mobile Menu Card */}
-        <div className={`md:hidden fixed top-[73px] left-4 right-4 z-50 transition-all duration-300 ${
-          isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-        }`}>
-          <div className="bg-background border border-border rounded-xl shadow-2xl p-8">
-            <div className="flex flex-col items-center space-y-6 text-xl">
-              <a 
-                href="#about" 
-                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
-              >
-                About
-              </a>
-              <a 
-                href="#photography" 
-                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    document.getElementById('photography')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
-              >
-                Photography
-              </a>
-              <a 
-                href="#hobbies" 
-                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    document.getElementById('hobbies')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
-              >
-                Hobbies
-              </a>
-              <a 
-                href="#electronics" 
-                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    document.getElementById('electronics')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
-              >
-                Electronics
-              </a>
-              <a 
-                href="#contact" 
-                className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
-                onClick={(e) => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
-              >
-                Contact
-              </a>
+        {/* Mobile Menu Card - Only show when open */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-4 right-4 z-[55] mt-2">
+            <div className="bg-background border border-border rounded-xl shadow-2xl p-8">
+              <div className="flex flex-col items-center space-y-6 text-xl">
+                <a 
+                  href="#about" 
+                  className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                  onClick={(e) => {
+                    console.log('About clicked');
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
+                  About
+                </a>
+                <a 
+                  href="#photography" 
+                  className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                  onClick={(e) => {
+                    console.log('Photography clicked');
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('photography')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
+                  Photography
+                </a>
+                <a 
+                  href="#hobbies" 
+                  className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                  onClick={(e) => {
+                    console.log('Hobbies clicked');
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('hobbies')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
+                  Hobbies
+                </a>
+                <a 
+                  href="#electronics" 
+                  className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                  onClick={(e) => {
+                    console.log('Electronics clicked');
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('electronics')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
+                  Electronics
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-muted-foreground hover:text-foreground transition-swift cursor-pointer"
+                  onClick={(e) => {
+                    console.log('Contact clicked');
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
+                  Contact
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Hero Section */}
