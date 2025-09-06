@@ -8,19 +8,30 @@ import { CatFace } from '@/components/CatFace';
 import profilePhoto from '@/assets/profile-photo.jpg';
 import photo1 from '@/assets/photography/photo-1.jpg';
 import photo2 from '@/assets/photography/photo-2.jpg';
+import photo3 from '@/assets/photography/photo-3.jpg';
+import photo4 from '@/assets/photography/photo-4.jpg';
+import photo5 from '@/assets/photography/photo-5.jpg';
+import photo6 from '@/assets/photography/photo-6.jpg';
+import photo7 from '@/assets/photography/photo-7.jpg';
+import photo8 from '@/assets/photography/photo-8.jpg';
+import photo9 from '@/assets/photography/photo-9.jpg';
+import photo10 from '@/assets/photography/photo-10.jpg';
+import photo11 from '@/assets/photography/photo-11.jpg';
 import rcPlane1 from '@/assets/hobbies/rc-plane-1.jpg';
 import hobby2 from '@/assets/hobbies/hobby-2.jpg';
+import hobby3 from '@/assets/hobbies/hobby-3.jpg';
 import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
 import electronics2 from '@/assets/electronics/electronics-2.jpg';
+import electronics3 from '@/assets/electronics/electronics-3.jpg';
 
 const Index = () => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentElectronicsIndex, setCurrentElectronicsIndex] = useState(0);
   const [currentHobbyIndex, setCurrentHobbyIndex] = useState(0);
 
-  const photographyImages = [photo1, photo2];
-  const electronicsImages = [pcbBoard1, electronics2];
-  const hobbyImages = [rcPlane1, hobby2];
+  const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
+  const electronicsImages = [pcbBoard1, electronics2, electronics3];
+  const hobbyImages = [rcPlane1, hobby2, hobby3];
 
   const nextPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev + 1) % photographyImages.length);
@@ -114,47 +125,62 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-elegant hover-glow">
-              <div className="relative aspect-golden">
-                <img 
-                  src={photographyImages[currentPhotoIndex]} 
-                  alt={`Photography ${currentPhotoIndex + 1}`}
-                  className="w-full h-full object-cover transition-elegant"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              
-              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={prevPhoto}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={nextPhoto}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </Card>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Images on left */}
+            <div className="relative">
+              <Card className="overflow-hidden shadow-elegant hover-glow">
+                <div className="relative aspect-golden">
+                  <img 
+                    src={photographyImages[currentPhotoIndex]} 
+                    alt={`Photography ${currentPhotoIndex + 1}`}
+                    className="w-full h-full object-cover transition-elegant"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={prevPhoto}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                </div>
+                
+                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={nextPhoto}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
 
-            <div className="text-center mt-8">
-              <Button asChild className="hover-lift">
-                <a href="https://flickr.com" target="_blank" rel="noopener noreferrer">
-                  View Full Gallery on Flickr
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+            {/* Text content on right */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light text-primary mb-4">My Photography Journey</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I capture the world through my Canon EOS R5 with a collection of prime and zoom lenses. 
+                From street photography to landscapes, each shot tells a unique story.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                My work focuses on natural light, composition, and finding beauty in everyday moments. 
+                I specialize in portrait, landscape, and urban photography with a minimalist approach.
+              </p>
+              <div className="pt-4">
+                <Button asChild className="hover-lift">
+                  <a href="https://flickr.com" target="_blank" rel="noopener noreferrer">
+                    View Full Gallery on Flickr
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -170,51 +196,62 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-elegant hover-glow">
-              <div className="relative aspect-golden">
-                <img 
-                  src={hobbyImages[currentHobbyIndex]} 
-                  alt={`Hobby ${currentHobbyIndex + 1}`}
-                  className="w-full h-full object-cover transition-elegant"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              
-              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={prevHobby}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={nextHobby}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </Card>
-
-            <div className="text-center mt-8">
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
-                From precision aerobatics to technical innovations, each pursuit combines skill 
-                with the pure joy of pushing creative boundaries and exploring new possibilities.
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text content on left */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light text-primary mb-4">RC Aviation & Model Building</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Flying RC aircraft has taught me precision, patience, and the thrill of aerodynamics. 
+                From building custom planes to mastering complex maneuvers, it's engineering in motion.
               </p>
-              <Button asChild className="hover-lift">
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                  Watch Videos
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Each model represents hours of careful assembly, tuning, and testing. 
+                I love sharing the joy of flight and the technical aspects of aviation through my videos.
+              </p>
+              <div className="pt-4">
+                <Button asChild className="hover-lift">
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                    Watch Videos
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* Images on right */}
+            <div className="relative">
+              <Card className="overflow-hidden shadow-elegant hover-glow">
+                <div className="relative aspect-golden">
+                  <img 
+                    src={hobbyImages[currentHobbyIndex]} 
+                    alt={`Hobby ${currentHobbyIndex + 1}`}
+                    className="w-full h-full object-cover transition-elegant"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={prevHobby}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                </div>
+                
+                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={nextHobby}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -230,46 +267,61 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-elegant hover-glow">
-              <div className="relative aspect-golden">
-                <img 
-                  src={electronicsImages[currentElectronicsIndex]} 
-                  alt={`Electronics ${currentElectronicsIndex + 1}`}
-                  className="w-full h-full object-cover transition-elegant"
-                />
-              </div>
-              
-              <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={prevElectronics}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                <Button 
-                  variant="secondary" 
-                  size="icon" 
-                  onClick={nextElectronics}
-                  className="bg-background/80 backdrop-blur-sm hover-lift"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </Card>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Images on left */}
+            <div className="relative">
+              <Card className="overflow-hidden shadow-elegant hover-glow">
+                <div className="relative aspect-golden">
+                  <img 
+                    src={electronicsImages[currentElectronicsIndex]} 
+                    alt={`Electronics ${currentElectronicsIndex + 1}`}
+                    className="w-full h-full object-cover transition-elegant"
+                  />
+                </div>
+                
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={prevElectronics}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                </div>
+                
+                <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+                  <Button 
+                    variant="secondary" 
+                    size="icon" 
+                    onClick={nextElectronics}
+                    className="bg-background/80 backdrop-blur-sm hover-lift"
+                  >
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
 
-            <div className="text-center mt-8">
-              <Button asChild className="hover-lift">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  View Projects on GitHub
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+            {/* Text content on right */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light text-primary mb-4">Circuit Design & PCB Development</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                From schematic design to PCB layout, I create custom electronic solutions using KiCad and Altium Designer. 
+                My focus is on efficient, reliable designs for embedded systems and IoT applications.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Each project combines theoretical knowledge with practical implementation, 
+                ensuring optimal performance and manufacturability in every design.
+              </p>
+              <div className="pt-4">
+                <Button asChild className="hover-lift">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    View Projects on GitHub
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
