@@ -19,11 +19,11 @@ import photo8 from '@/assets/photography/photo-8.jpg';
 import photo9 from '@/assets/photography/photo-9.jpg';
 import photo10 from '@/assets/photography/photo-10.jpg';
 import photo11 from '@/assets/photography/photo-11.jpg';
-import rcPlane1 from '@/assets/hobbies/rc-plane-1.jpg';
+import hobby1 from '@/assets/hobbies/hobby-1.jpg';
 import hobby2 from '@/assets/hobbies/hobby-2.jpg';
 import hobby3 from '@/assets/hobbies/hobby-3.jpg';
-import droneRacing1 from '@/assets/hobbies/drone-racing-1.jpg';
-import rcCarRacing1 from '@/assets/hobbies/rc-car-racing-1.jpg';
+import hobby4 from '@/assets/hobbies/hobby-4.jpg';
+import hobby5 from '@/assets/hobbies/hobby-5.jpg';
 import pcbBoard1 from '@/assets/electronics/pcb-board-1.jpg';
 import electronics2 from '@/assets/electronics/electronics-2.jpg';
 import electronics3 from '@/assets/electronics/electronics-3.jpg';
@@ -48,7 +48,7 @@ const Index = () => {
   }, []);
   const photographyImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11];
   const electronicsImages = [pcbBoard1, electronics2, electronics3, advancedPcb1, arduinoPrototype1];
-  const hobbyImages = [rcPlane1, hobby2, hobby3, droneRacing1, rcCarRacing1];
+  const hobbyImages = [hobby1, hobby2, hobby3, hobby4, hobby5];
   const nextPhoto = () => {
     setCurrentPhotoIndex(prev => (prev + 1) % photographyImages.length);
   };
