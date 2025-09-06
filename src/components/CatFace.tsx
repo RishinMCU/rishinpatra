@@ -7,17 +7,36 @@ interface CatFaceProps {
 export const CatFace = ({ className = "" }: CatFaceProps) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [expression, setExpression] = useState<'normal' | 'smile' | 'wink' | 'tongue'>('normal');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const catRef = useRef<HTMLDivElement>(null);
+  const transitionTimeoutRef = useRef<NodeJS.Timeout>();
+
+  const changeExpression = (newExpression: 'normal' | 'smile' | 'wink' | 'tongue') => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setExpression(newExpression);
+    
+    // Clear any existing timeout
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current);
+    }
+    
+    // Allow next expression change after delay
+    transitionTimeoutRef.current = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 400);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    const handleEmailHover = () => setExpression('smile');
-    const handleLocationHover = () => setExpression('wink');
-    const handlePhoneHover = () => setExpression('tongue');
-    const handleLeave = () => setExpression('normal');
+    const handleEmailHover = () => changeExpression('smile');
+    const handleLocationHover = () => changeExpression('wink');
+    const handlePhoneHover = () => changeExpression('tongue');
+    const handleLeave = () => changeExpression('normal');
 
     // Add mouse move listener
     window.addEventListener('mousemove', handleMouseMove);
@@ -42,6 +61,10 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
       locationCard?.removeEventListener('mouseleave', handleLeave);
       phoneCard?.removeEventListener('mouseenter', handlePhoneHover);
       phoneCard?.removeEventListener('mouseleave', handleLeave);
+      
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -87,7 +110,7 @@ export const CatFace = ({ className = "" }: CatFaceProps) => {
   return (
     <div 
       ref={catRef}
-      className={`relative inline-block transition-all duration-300 pointer-events-none group ${className}`}
+      className={`relative inline-block transition-all duration-300 group ${className}`}
     >
       <svg 
         width="60" 
